@@ -9,8 +9,18 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import{AddQuestionComponent} from "./add-question/add-question.component"
+import {RandomChoiceComponent} from "./random-choice/random-choice.component"
+import {ProbabilityDecisionComponent} from "./probability-decision/probability-decision.component";
+import {MultipleChoiceDecisionComponent} from "./multiple-choice-decision/multiple-choice-decision.component"
+import {IntrospectiveDecisionComponent} from "./introspective-decision/introspective-decision.component"
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,
+    AddQuestionComponent,
+    RandomChoiceComponent,
+    ProbabilityDecisionComponent,
+    MultipleChoiceDecisionComponent,
+    IntrospectiveDecisionComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [

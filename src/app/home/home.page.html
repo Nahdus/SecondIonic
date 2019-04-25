@@ -1,14 +1,36 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Decision Matrix
+      
     </ion-title>
+    <ion-thumbnail slot="end">
+        <ion-img [src]="'./assets/images/critical-thinking.png'" ></ion-img>
+    </ion-thumbnail>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+    <ion-list>
+
+      <ion-item>
+        <a class="button is-primary">Second column is longer than other columns</a>
+      </ion-item>
+      <ion-item>
+        <a class="button is-primary">Second column is longer than other columns </a>
+      </ion-item>
+      <ion-item>
+        <a class="button is-primary">Second column is longer than other columns</a>
+      </ion-item>
+      <ion-item>
+        <a class="button is-primary">Second column is longer than other columns</a>
+      </ion-item>
+    </ion-list>
   </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/add">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
