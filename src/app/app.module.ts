@@ -14,6 +14,14 @@ import {RandomChoiceComponent} from "./random-choice/random-choice.component"
 import {ProbabilityDecisionComponent} from "./probability-decision/probability-decision.component";
 import {MultipleChoiceDecisionComponent} from "./multiple-choice-decision/multiple-choice-decision.component"
 import {IntrospectiveDecisionComponent} from "./introspective-decision/introspective-decision.component"
+
+import { InMemoryWebApiModule } from "angular-in-memory-web-api"; 
+import {DataService} from "./data.service"
+
+
+import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [AppComponent,
     AddQuestionComponent,
@@ -21,12 +29,22 @@ import {IntrospectiveDecisionComponent} from "./introspective-decision/introspec
     ProbabilityDecisionComponent,
     MultipleChoiceDecisionComponent,
     IntrospectiveDecisionComponent],
+
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+
+  imports: [BrowserModule, 
+    IonicModule.forRoot(), 
+    HttpClientModule,
+     AppRoutingModule,
+     InMemoryWebApiModule.forRoot(DataService)
+    ],
+
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    
   ],
   bootstrap: [AppComponent]
 })

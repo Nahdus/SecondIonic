@@ -13,19 +13,13 @@
 <ion-content>
   <div class="ion-padding">
     <ion-list>
-
-      <ion-item>
-        <a class="button is-primary">Second column is longer than other columns</a>
+      
+      <ion-item *ngFor="let  matrix of matricies">
+        <a class="button is-primary">{{matrix.title}}</a>
       </ion-item>
-      <ion-item>
-        <a class="button is-primary">Second column is longer than other columns </a>
-      </ion-item>
-      <ion-item>
-        <a class="button is-primary">Second column is longer than other columns</a>
-      </ion-item>
-      <ion-item>
-        <a class="button is-primary">Second column is longer than other columns</a>
-      </ion-item>
+      
+      
+      
     </ion-list>
   </div>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
