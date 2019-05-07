@@ -4,33 +4,30 @@
       Create decision Matrix
     </ion-title>
     <ion-thumbnail slot="end">
-        <ion-img [src]="'./assets/images/critical-thinking.png'" ></ion-img>
+      <ion-img [src]="'./assets/images/critical-thinking.png'"></ion-img>
     </ion-thumbnail>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="ion-padding">
+    <form #f="ngForm">
     <div class="field">
-      <div class="field-label is-normal">
-        <label class="label">Add decision lable</label>
-      </div>
-      <div class="control">
-        <input class="input is-info" type="text" placeholder="Ex.Coffee decision">
-      </div>
     </div>
     <div class="field">
       <div class="field-label is-normal">
         <label class="label">Frame your question</label>
       </div>
       <div class="control">
-        <input class="input is-info" type="text" placeholder="Ex.Should I drink coffee today?">
+        <input class="input is-info" [(ngModel)]="myTask"  name="first" type="text" placeholder="Ex.Should I drink coffee today?" required>
       </div>
+
     </div>
-    
-    <a class="button is-success is-focused is-fullwidth" (click)="presentActionSheet()">Select a algorithm</a>
+
+    <button class="button is-success is-focused is-fullwidth" [disabled]="!f.valid" (click)="presentActionSheet()">Select a algorithm</button>
+  </form>
     <a class="button is-secondary outline is-fullwidth" (click)="goBack()">Go back</a>
-    
+
   </div>
 
 </ion-content>

@@ -2,21 +2,30 @@ import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
 import { Router } from '@angular/router'
 import { Location } from '@angular/common';
-
+import {DummyApiService} from "../dummy-api.service"
 @Component({
   selector: 'app-add-question',
   templateUrl: './add-question.component.html',
   styleUrls: ['./add-question.component.scss'],
 })
 export class AddQuestionComponent implements OnInit {
+  myTask:string
 
   constructor(private router: Router
     ,public actionSheetController: ActionSheetController
-    ,private location:Location) { }
+    ,private location:Location
+    ,private dummyApiService:DummyApiService) { }
 
   ngOnInit() {}
   goBack(){
     this.location.back()
+  }
+  create() {
+    
+    const postData = {
+      lable: this.myTask
+    };
+    this.dummyApiService.createMatrix(postData)
   }
   async presentActionSheet() {
     const actionSheet = await this.actionSheetController.create({

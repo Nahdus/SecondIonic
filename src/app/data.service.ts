@@ -11,11 +11,11 @@ export class DataService implements InMemoryDbService{
     let data=[
       {
         id:1,
-        title:"Should i drink coffee?"
+        lable:"Should i drink coffee?"
       },
       {
         id:2,
-        title:"how should i spend this evening?"
+        lable:"how should i spend this evening?"
       }
     ]
     return{

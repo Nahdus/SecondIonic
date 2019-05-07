@@ -16,8 +16,8 @@ import {MultipleChoiceDecisionComponent} from "./multiple-choice-decision/multip
 import {IntrospectiveDecisionComponent} from "./introspective-decision/introspective-decision.component"
 
 import { InMemoryWebApiModule } from "angular-in-memory-web-api"; 
-import {DataService} from "./data.service"
-
+import {DataService} from "./data.service";
+import {FormsModule} from "@angular/forms"
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -36,7 +36,9 @@ import { HttpClientModule } from '@angular/common/http';
     IonicModule.forRoot(), 
     HttpClientModule,
      AppRoutingModule,
+     FormsModule,
      InMemoryWebApiModule.forRoot(DataService)
+     
     ],
 
   providers: [
