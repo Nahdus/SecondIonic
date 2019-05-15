@@ -17,5 +17,11 @@ export class HomePage implements OnInit{
       this.matricies=data
     })
   }
+  deleteMatrix(id):void{
+    console.log("deleted",id)
+    this.matricies=this.matricies.filter((matrix)=>matrix.id!==id)
+    this.dummyApiService.deleteMatrix(id).subscribe()
+
+  }
 
 }

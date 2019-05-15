@@ -17,6 +17,7 @@
       <ion-item *ngFor="let  matrix of matricies">
           
         <ion-button color="secondary" routerLink="/decision/{{matrix.id}}" >{{matrix.label}}</ion-button>
+        <ion-icon slot ="end" (click)="deleteMatrix(matrix.id)" name="trash"></ion-icon>
       </ion-item>
       
       

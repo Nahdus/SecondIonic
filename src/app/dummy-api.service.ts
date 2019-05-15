@@ -34,6 +34,11 @@ export class DummyApiService {
       
   } //updateTask
 
+  public deleteMatrix(id){
+    const url = `${this.SERVER_URL}data/${id}`
+    console.log(url)
+    return this.httpClient.delete(url)
+  }
 
 
 }
