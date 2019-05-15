@@ -14,7 +14,7 @@ import {RandomChoiceComponent} from "./random-choice/random-choice.component"
 import {ProbabilityDecisionComponent} from "./probability-decision/probability-decision.component";
 import {MultipleChoiceDecisionComponent} from "./multiple-choice-decision/multiple-choice-decision.component"
 import {IntrospectiveDecisionComponent} from "./introspective-decision/introspective-decision.component"
-
+import {MakedecisioncomponentComponent} from "./makedecisioncomponent/makedecisioncomponent.component"
 import { InMemoryWebApiModule } from "angular-in-memory-web-api"; 
 import {DataService} from "./data.service";
 import {FormsModule} from "@angular/forms"
@@ -28,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     RandomChoiceComponent,
     ProbabilityDecisionComponent,
     MultipleChoiceDecisionComponent,
-    IntrospectiveDecisionComponent],
+    IntrospectiveDecisionComponent,
+    MakedecisioncomponentComponent],
 
   entryComponents: [],
 

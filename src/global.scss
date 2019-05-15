@@ -1,4 +1,9 @@
 // http://ionicframework.com/docs/theming/
+// @import "bulma/sass/utilities/_all.sass";
+// @import "bulma/sass/grid/columns.sass";
+// @import "bulma/sass/elements/button.sass";
+// @import "bulma/sass/elements/form.sass";
+// @import "bulma/sass/components/dropdown.sass";
 @import '~@ionic/angular/css/core.css';
 @import '~@ionic/angular/css/normalize.css';
 @import '~@ionic/angular/css/structure.css';
@@ -9,8 +14,4 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
-@import "bulma/sass/utilities/_all.sass";
-@import "bulma/sass/grid/columns.sass";
-@import "bulma/sass/elements/button.sass";
-@import "bulma/sass/elements/form.sass";
-@import "bulma/sass/components/dropdown.sass"
+
