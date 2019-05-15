@@ -19,14 +19,17 @@
         <label class="label">Frame your question</label>
       </div>
       <div class="control">
-        <input class="input is-info" [(ngModel)]="myTask"  name="first" type="text" placeholder="Ex.Should I drink coffee today?" required>
+        <ion-input class="input is-info" [(ngModel)]="myTask"  name="first" type="text" placeholder="Ex.Should I drink coffee today?" required></ion-input>
       </div>
 
     </div>
 
-    <button class="button is-success is-focused is-fullwidth" [disabled]="!f.valid" (click)="presentActionSheet()">Select a algorithm</button>
+    <ion-button  [disabled]="!f.valid" (click)="presentActionSheet()">Select a algorithm</ion-button>
   </form>
-    <a class="button is-secondary outline is-fullwidth" (click)="goBack()">Go back</a>
+  <ion-item>
+    <ion-icon name="arrow-round-back" (click)="goBack()"></ion-icon>
+  </ion-item>
+    
 
   </div>
 
