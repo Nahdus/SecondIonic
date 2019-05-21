@@ -9,23 +9,25 @@ import {DummyApiService} from "../dummy-api.service"
   styleUrls: ['./add-question.component.scss'],
 })
 export class AddQuestionComponent implements OnInit {
-  myTask:string
+  question:string
 
   constructor(private router: Router
     ,public actionSheetController: ActionSheetController
     ,private location:Location
-    ,private dummyApiService:DummyApiService) { }
+    ,private dummyApiService:DummyApiService
+    ) { }
 
   ngOnInit() {}
   goBack(){
     this.location.back()
+    
   }
   create() {
-    
+    console.log("create at add question")
     const postData = {
-      lable: this.myTask
+      label: this.question
     };
-    this.dummyApiService.createMatrix(postData)
+    this.dummyApiService.createMatrix(postData).subscribe()
   }
   async presentActionSheet() {
     const actionSheet = await this.actionSheetController.create({
@@ -34,6 +36,7 @@ export class AddQuestionComponent implements OnInit {
         text: 'Random Decision',
         icon: 'md-funnel',
         handler: () => {
+          this.create()
           this.router.navigate(["/random"])
           console.log('Random Decision clicked');
         }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DummyApiService} from "../dummy-api.service";
 
 @Component({
   selector: 'app-random-choice',
@@ -6,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./random-choice.component.scss'],
 })
 export class RandomChoiceComponent implements OnInit {
-
-  constructor() { }
+  matrices:Array<any>=[]
+  constructor(
+    private dummyService:DummyApiService
+  ) { }
 
   ngOnInit() {}
+  addMatrix(matrix){
+    this.dummyService.createMatrix({label:matrix}).subscribe(data=>this.matrices.push(data))
+    
+  }
 
 }

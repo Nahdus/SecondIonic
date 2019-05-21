@@ -28,9 +28,10 @@ export class DummyApiService {
     return httprespon
   }
 
-  public createMatrix(update) {
-    return this.httpClient
-      .post(this.SERVER_URL + "data", update)
+  public createMatrix(matrix) {
+    const url = `${this.SERVER_URL}data/`
+    console.log(url,matrix)
+    return this.httpClient.post(url,matrix)
       
   } //updateTask
 
@@ -39,7 +40,6 @@ export class DummyApiService {
     console.log(url)
     return this.httpClient.delete(url)
   }
-
 
 }
 

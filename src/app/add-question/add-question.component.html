@@ -12,25 +12,22 @@
 <ion-content>
   <div class="ion-padding">
     <form #f="ngForm">
-    <div class="field">
-    </div>
-    <div class="field">
-      <div class="field-label is-normal">
-        <label class="label">Frame your question</label>
-      </div>
-      <div class="control">
-        <ion-input class="input is-info" [(ngModel)]="myTask"  name="first" type="text" placeholder="Ex.Should I drink coffee today?" required></ion-input>
-      </div>
+      <div class="field">
+        <div class="field-label is-normal">
+          <label class="label">Frame your question</label>
+        </div>
+        <div class="control">
+          <ion-input class="input is-info" [(ngModel)]="question"  
+          name="first" type="text" placeholder="Ex.Should I drink coffee today?" required></ion-input>
+        </div>
 
-    </div>
-
-    <ion-button  [disabled]="!f.valid" (click)="presentActionSheet()">Select a algorithm</ion-button>
-  </form>
+      </div>
+      
+      <ion-button  [disabled]="!f.valid" (click)="presentActionSheet()">Select a algorithm</ion-button>
+    </form>
   <ion-item>
     <ion-icon name="arrow-round-back" (click)="goBack()"></ion-icon>
   </ion-item>
-    
-
-  </div>
+</div>
 
 </ion-content>

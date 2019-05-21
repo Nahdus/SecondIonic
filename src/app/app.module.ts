@@ -36,9 +36,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [BrowserModule, 
     IonicModule.forRoot(), 
     HttpClientModule,
-     AppRoutingModule,
-     FormsModule,
-     InMemoryWebApiModule.forRoot(DataService)
+    AppRoutingModule,
+    FormsModule,
+    InMemoryWebApiModule.forRoot(DataService)
      
     ],
 
