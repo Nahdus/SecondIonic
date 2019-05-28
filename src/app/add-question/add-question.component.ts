@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
 import { Router } from '@angular/router'
 import { Location } from '@angular/common';
-import {DummyApiService} from "../dummy-api.service"
+import {DummyApiService} from "../dummy-api.service";
+import {communicationService} from "../communicator/communicator.service"
 @Component({
   selector: 'app-add-question',
   templateUrl: './add-question.component.html',
@@ -15,6 +16,7 @@ export class AddQuestionComponent implements OnInit {
     ,public actionSheetController: ActionSheetController
     ,private location:Location
     ,private dummyApiService:DummyApiService
+    ,private communicationService:communicationService
     ) { }
 
   ngOnInit() {}
@@ -22,13 +24,7 @@ export class AddQuestionComponent implements OnInit {
     this.location.back()
     
   }
-  create() {
-    console.log("create at add question")
-    const postData = {
-      label: this.question
-    };
-    this.dummyApiService.createMatrix(postData).subscribe()
-  }
+  
   async presentActionSheet() {
     const actionSheet = await this.actionSheetController.create({
       header: 'Algorithm',
@@ -36,7 +32,7 @@ export class AddQuestionComponent implements OnInit {
         text: 'Random Decision',
         icon: 'md-funnel',
         handler: () => {
-          this.create()
+          this.communicationService.setLabel(this.question)
           this.router.navigate(["/random"])
           console.log('Random Decision clicked');
         }

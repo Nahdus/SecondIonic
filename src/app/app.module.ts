@@ -18,7 +18,7 @@ import {MakedecisioncomponentComponent} from "./makedecisioncomponent/makedecisi
 import { InMemoryWebApiModule } from "angular-in-memory-web-api"; 
 import {DataService} from "./data.service";
 import {FormsModule} from "@angular/forms"
-
+import {communicationService} from "./communicator/communicator.service"
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -45,7 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     StatusBar,
     SplashScreen,
-    
+    communicationService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     
   ],

@@ -1,6 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import {DummyApiService} from "../dummy-api.service"
 import {ActivatedRoute} from "@angular/router"
+import {communicationService} from "../communicator/communicator.service"
+import { HttpClientBackendService } from 'angular-in-memory-web-api';
+
 @Component({
   selector: 'app-makedecisioncomponent',
   templateUrl: './makedecisioncomponent.component.html',
@@ -10,7 +13,8 @@ export class MakedecisioncomponentComponent implements OnInit {
   @Input() matrix
   constructor(
     private route:ActivatedRoute,
-    private dummyService:DummyApiService
+    private dummyService:DummyApiService,
+    private communicationService:communicationService
   ) { }
 
   ngOnInit():void {
@@ -23,6 +27,9 @@ export class MakedecisioncomponentComponent implements OnInit {
       console.log("The MAtrix",matrix) 
       this.matrix=matrix
     } )
+  }
+  @HostListener('click') click(){
+    this.communicationService.createMatrix()
   }
 
 }

@@ -13,7 +13,7 @@
 
   <form #f="ngForm">
     <div class="control">
-      <ion-input class="input is-info" [(ngModel)]="myTask" name="first" type="text"
+      <ion-input class="input is-info" [(ngModel)]="choice"  type="text" name="first"
         placeholder="Enter a choice" required></ion-input>
     </div>
     <ion-button color="success" (click)="pushchoice()" [disabled]="!f.valid">Add choice</ion-button>
