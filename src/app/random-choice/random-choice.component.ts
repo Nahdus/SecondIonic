@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {DummyApiService} from "../dummy-api.service";
 import {communicationService} from "../communicator/communicator.service"
 
@@ -9,7 +9,7 @@ import {communicationService} from "../communicator/communicator.service"
 })
 export class RandomChoiceComponent implements OnInit {
   matrices:Array<any>=[]
-  choice:string
+  @Input() choice:string
   choicelist:Array<string>=[]
   constructor(
     private dummyService:DummyApiService,
@@ -26,6 +26,7 @@ export class RandomChoiceComponent implements OnInit {
   }
   pushchoice(){
     this.choicelist.push(this.choice)
+    this.choice=""
   }
 
 }
