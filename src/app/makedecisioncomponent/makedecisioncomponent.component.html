@@ -3,19 +3,32 @@
   <ion-item>
     {{matrix?.label}}
     
-
       <ion-icon slot="end" [routerLink]="['/home']" router-direction="back" name="arrow-round-back"></ion-icon>
-    
   </ion-item>
   
 </ion-header>
 <ion-content>
-    
-        
+  <ion-item>
+      Decision type: {{matrix?.decisiontype}}
+      
+  </ion-item>
+  
+  <div *ngIf="matrix?.decisiontype==='random'">
+  <ion-item *ngFor="let  decision of matrix?.decisions">
+          
+      {{decision}}
+  </ion-item>
+  </div>
+  <div *ngIf="matrix?.decisiontype==='customProbability'">
+      <ion-item *ngFor="let  decision of matrix?.decisions">
+              
+          {{decision.decision}} <br>
+          probability: {{decision.probability}}
+      </ion-item>
+  </div>
         <ion-button  color="success">Make Decision</ion-button>
         <!-- <button  ion-fab ion-button class="button is-primary" color="secondary">Make Decision</button> -->
-      
-    
+  
 </ion-content>
   
 
