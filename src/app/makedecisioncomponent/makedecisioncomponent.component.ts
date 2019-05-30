@@ -2,8 +2,8 @@ import { Component, OnInit, Input, HostListener } from '@angular/core';
 import {DummyApiService} from "../dummy-api.service"
 import {ActivatedRoute} from "@angular/router"
 import {communicationService} from "../communicator/communicator.service"
-import { HttpClientBackendService } from 'angular-in-memory-web-api';
 
+import { AlertController } from '@ionic/angular'
 @Component({
   selector: 'app-makedecisioncomponent',
   templateUrl: './makedecisioncomponent.component.html',
@@ -11,10 +11,12 @@ import { HttpClientBackendService } from 'angular-in-memory-web-api';
 })
 export class MakedecisioncomponentComponent implements OnInit {
   @Input() matrix
+  @Input() decision
   constructor(
     private route:ActivatedRoute,
     private dummyService:DummyApiService,
-    private communicationService:communicationService
+    private communicationService:communicationService,
+    private alertController:AlertController
   ) { }
 
   ngOnInit():void {
@@ -28,8 +30,17 @@ export class MakedecisioncomponentComponent implements OnInit {
       this.matrix=matrix
     } )
   }
-  @HostListener('click') click(){
-    this.communicationService.createMatrix()
+  makeDecision(listy){
+    //console.log(listy)
+    const decision=listy[Math.floor(Math.random()*listy.length)]
+    this.presentAlert(decision)
   }
-
+  async presentAlert(decision) {
+    const alert = await this.alertController.create({
+      header: "Decision",
+      message: decision,
+      
+      });
+    await alert.present()
+  }
 }

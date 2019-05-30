@@ -26,7 +26,10 @@
           probability: {{decision.probability}}
       </ion-item>
   </div>
-        <ion-button  color="success">Make Decision</ion-button>
+        <ion-button  (click)="makeDecision(matrix?.decisions)" color="success">Make Decision</ion-button>
+  <div *ngIf="decision!=undefined">
+    <h2>{{decision}}</h2>
+  </div>
         <!-- <button  ion-fab ion-button class="button is-primary" color="secondary">Make Decision</button> -->
   
 </ion-content>
