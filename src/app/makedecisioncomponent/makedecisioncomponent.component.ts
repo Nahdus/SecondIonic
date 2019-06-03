@@ -4,6 +4,7 @@ import {ActivatedRoute} from "@angular/router"
 import {communicationService} from "../communicator/communicator.service"
 
 import { AlertController } from '@ionic/angular'
+import { zip } from 'rxjs';
 @Component({
   selector: 'app-makedecisioncomponent',
   templateUrl: './makedecisioncomponent.component.html',
@@ -31,10 +32,22 @@ export class MakedecisioncomponentComponent implements OnInit {
     } )
   }
   makeDecision(listy){
-    //console.log(listy)
-    const decision=listy[Math.floor(Math.random()*listy.length)]
-    this.presentAlert(decision)
-  }
+    if(this.matrix.decisiontype==="random"){
+      const decision=listy[Math.floor(Math.random()*listy.length)]
+      this.presentAlert(decision)
+    }
+    if(this.matrix.decisiontype==="customProbability"){
+      const probabilities=listy.map(x=>x.probability*100)
+      const decisions=[]
+      probabilities.forEach((reps,index) => {
+        const arr= new Array(reps)
+        arr.fill(listy[index].decision)
+        decisions.push(...arr)
+      });
+
+      this.presentAlert(decisions[Math.floor(Math.random()*decisions.length)])
+    }
+}
   async presentAlert(decision) {
     const alert = await this.alertController.create({
       header: "Decision",
