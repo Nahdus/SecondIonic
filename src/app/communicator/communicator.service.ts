@@ -14,6 +14,9 @@ export class communicationService{
     public setLabel(label){
         this.matrix.label=label
     }
+    public getLabel(){
+        return this.matrix.label
+    }
     public setDecisionType(decisionType){
         this.matrix.decisiontype=decisionType
     }

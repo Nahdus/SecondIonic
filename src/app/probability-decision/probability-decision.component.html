@@ -1,3 +1,45 @@
-<p>
-  probability-decision works!
-</p>
+<ion-header>
+
+  <ion-item>
+      {{label}}
+
+
+    <ion-icon slot="end" [routerLink]="['/home']" router-direction="back" name="arrow-round-back"></ion-icon>
+
+  </ion-item>
+</ion-header>
+
+<ion-content>
+
+  <form #f="ngForm">
+    <div class="control">
+      <ion-input class="input is-info" [(ngModel)]="choice"  type="text" name="first"
+        placeholder="Enter a choice" required></ion-input>
+    </div>
+    <ion-item>
+      <!-- <p>Probability</p> -->
+      <ion-label slot="start">Probability</ion-label>
+      <ion-range min={{minimumValue}} max={{maximumValue}} [(ngModel)]="Probability" value= "60" color="secondary" pin="true">
+        <ion-label slot="start">{{minimumValue}}</ion-label>
+        <ion-label slot="end">{{maximumValue}}</ion-label>
+      </ion-range>
+        
+    </ion-item>
+    <ion-button color="success" (click)="pushchoice(choice,Probability)" [disabled]="!f.valid">Add choice</ion-button>
+  </form>
+
+  <ion-item>
+
+    <ion-button color="dark" (click)="addMatrix('New random decision making matrix')" routerLink="/home">save
+      <ion-icon name="save" slot="end"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+</ion-content>
+
+
+
+
+  
+
+ 

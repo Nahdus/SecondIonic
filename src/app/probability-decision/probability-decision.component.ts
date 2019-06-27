@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {communicationService} from "../communicator/communicator.service"
 
 @Component({
   selector: 'app-probability-decision',
@@ -6,9 +7,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./probability-decision.component.scss'],
 })
 export class ProbabilityDecisionComponent implements OnInit {
+  @Input() minimumValue:number=0
+  @Input() maximumValue:number=100
+  @Input() choice:string
+  @Input() Probability:string
+  choices=[]
+  label:string
+  constructor(private communicationService:communicationService) { }
+  
+  
+  ngOnInit() {
+    this.label=this.communicationService.getLabel()
+    console.log(this.label)
+  }
 
-  constructor() { }
 
-  ngOnInit() {}
+  pushchoice(decision,probability){
+    
+    this.choices.push({
+      decision:decision,
+      probability:probability
+    })
+    console.log(this.choices)
+    
+  }
 
 }

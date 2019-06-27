@@ -9,6 +9,7 @@ import {communicationService} from "../communicator/communicator.service"
 })
 export class RandomChoiceComponent implements OnInit {
   matrices:Array<any>=[]
+  label:string
   @Input() choice:string
   choicelist:Array<string>=[]
   constructor(
@@ -16,7 +17,10 @@ export class RandomChoiceComponent implements OnInit {
     private communicationService:communicationService
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.label=this.communicationService.getLabel()
+    console.log(this.label)
+  }
   addMatrix(matrix){
     this.communicationService.setDecisionType("random")
     this.communicationService.setDecision(this.choicelist)

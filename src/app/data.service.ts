@@ -20,9 +20,9 @@ export class DataService implements InMemoryDbService{
         label:"how should i spend this evening?",
         decisiontype:"customProbability",
         decisions:[
-        {decision:"watch a movie",probability:0.6},
-        {decision:"go for a walk",probability:0.25},
-        {decision:"meditate",probability:0.15}
+        {decision:"watch a movie",probability:0.9},
+        {decision:"go for a walk",probability:0.1},
+        
       ]
       }
     ]
